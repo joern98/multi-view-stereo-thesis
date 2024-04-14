@@ -1,9 +1,9 @@
 ####
 # Author: Jörn Eggersglüß
 #
-# Implementation of the first approach
-# Takes a captured scene and computed depth for stereo pairs (IR0, IR1) and (IR0, IR3)
-# Outputs a directory inside the input directory containing generated depth maps and point clouds
+# Implementation of the second approach
+# Computes image consistency with all images for a family of planes. IR0 is reference camera.
+# Outputs a directory inside the input directory containing generated depth map and point clouds
 ####
 
 import math
@@ -103,6 +103,8 @@ def plane_sweep(images: [cv.Mat | np.ndarray | cv.UMat], k_rt: [Tuple[np.ndarray
                 H = compute_homography(k_rt[0], k_rt[j], z)
                 projected = cv.warpPerspective(images[j], H, image_size, flags=cv.WARP_INVERSE_MAP | cv.INTER_LINEAR, borderMode=cv.BORDER_CONSTANT, borderValue=(0.5, 0.5, 0.5))
                 _L.append(projected)
+
+            # Comment out lines to not show images
             for m in range(len(_L)):
                 cv.imshow(f"Camera {m}", _L[m])
 
@@ -115,6 +117,8 @@ def plane_sweep(images: [cv.Mat | np.ndarray | cv.UMat], k_rt: [Tuple[np.ndarray
             dt = time.perf_counter_ns() - start
             total += dt
             print(f"...Took {dt / 1000000} ms")
+
+            # Visualize plane cost
             v = (cost_volume[i] + 1.0) / 2
             cv.imshow("cost_volume", v)
             cv.waitKey(1)
