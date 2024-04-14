@@ -24,10 +24,12 @@ A calibration `.npy` file must be given as input to the script.
 Implementation of the first approach in `first_approach.py`.
 The script takes the path to a capture directory as produced by `capture.py`.
 It shows the results of the algorithm,
-which can then be saved to a subdirectory of the capture directory.
+which may then be saved to a subdirectory of the capture directory.
 
 ## Second approach / plane sweep approach
 Implementation of the second approach in `plane_sweep.py`.
+The script takes the path to a capture directory as produced by `capture.py`.
+
 Furthermore, `plane_sweep_impl.py` contains the code for
 the consistency computation as a Cython extension.
 It can be compiled by running
@@ -38,3 +40,11 @@ The built `.pyd` module is then imported in `plane_sweep.py` with the line
 ```python
 from plane_sweep_ext import compute_consistency_image
 ```
+Since the algorithm is quite slow, after completion,
+the user is asked if the cost-volume should be saved.
+
+The output of this is the same as with the first approach,
+depth map is shown to the user and may be saved to a subdirectory of the capture directory  
+
+## Samples
+The `samples` directory contains the sample scenes mentioned in the thesis.

@@ -10,10 +10,10 @@ from scipy.interpolate import interp1d
 
 from device_utility.DeviceManager import DeviceManager
 from device_utility.DevicePair import DevicePair
-from utility.camera_calibration import load_calibration_from_file, stereo_rectify, run_camera_calibration, \
+from camera_calibration import load_calibration_from_file, stereo_rectify, run_camera_calibration, \
     write_calibration_to_file
 from device_utility.utils import set_sensor_option, get_sensor_option
-from utility import CameraParametersWithPinhole, get_camera_parameters
+from utilities import CameraParametersWithPinhole, get_camera_parameters
 
 WINDOW_LEFT = "left"
 WINDOW_RIGHT = "right"

@@ -12,9 +12,9 @@ import cv2 as cv
 import numpy as np
 import pyrealsense2 as rs
 
-from .device_utility.DeviceManager import DeviceManager
-from .device_utility.DevicePair import DevicePair
-from .device_utility.utils import set_sensor_option, get_stereo_extrinsic, get_sensor_option
+from utility.device_utility.DeviceManager import DeviceManager
+from utility.device_utility.DevicePair import DevicePair
+from utility.device_utility.utils import set_sensor_option, get_stereo_extrinsic, get_sensor_option
 
 NUM_PATTERNS_REQUIRED = 7
 # https://docs.opencv.org/4.x/d9/d5d/classcv_1_1TermCriteria.html, (TYPE, iterations, epsilon)

@@ -21,7 +21,7 @@ from scipy.interpolate import interp1d
 import open3d as o3d
 
 from utility.camera_calibration import load_calibration_from_file, stereo_rectify
-from utility.utility import save_point_cloud
+from utility.utilities import save_point_cloud
 
 WINDOW_LEFT_IR_1 = "left IR 1"
 WINDOW_LEFT_IR_2 = "left IR 2"

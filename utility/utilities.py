@@ -9,7 +9,7 @@ import numpy as np
 import open3d as o3d
 import pyrealsense2 as rs
 
-from .device_utility.utils import get_stereo_extrinsic
+from utility.device_utility.utils import get_stereo_extrinsic
 
 
 @dataclass()
