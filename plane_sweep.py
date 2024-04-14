@@ -136,7 +136,8 @@ def plane_sweep(images: [cv.Mat | np.ndarray | cv.UMat], k_rt: [Tuple[np.ndarray
     max_idx = np.argmax(cost_volume, axis=0)
     depth = z_min + max_idx * z_step
     m = np.squeeze(np.take_along_axis(cost_volume, max_idx.reshape(1, 720, 1280), axis=0))
-    depth = np.where(m > 0.8, depth, 0)
+    NCC_THRESHOLD = 0.8
+    depth = np.where(m > NCC_THRESHOLD, depth, 0)
 
     return depth
 
